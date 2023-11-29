@@ -79,7 +79,7 @@ export default function Pickup({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <TextInput
+      <TextInput 
         placeholder='Enter any location...'
         onChangeText={getLocationsFromText}
       />
@@ -109,7 +109,7 @@ export default function Pickup({ navigation }) {
           return <TouchableOpacity onPress={() => navigation.navigate('Destination', {
             pickupLocation: item
           })}>
-            <Text>{index + 1}) {item.name}</Text>
+            <Text style={styles.title}>{index + 1}) {item.name}</Text>
           </TouchableOpacity>
         })}
       </View>
@@ -135,5 +135,10 @@ const styles = StyleSheet.create({
     width: 200,
     top: 60,
     backgroundColor: 'white'
+  },
+  title:{
+    fontSize:20,
+    margin:5,
+    
   }
 });

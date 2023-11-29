@@ -36,7 +36,7 @@ export default function Destination({ navigation,route }) {
 }
 
   return <View>
-    <Text>Pickup Location:{pickupLocation.name}</Text>
+    <Text style={styles.title}>Pickup Location:{pickupLocation.name}</Text>
     <TextInput
         placeholder='Enter destination'
         onChangeText={getLocationsFromText}
@@ -72,13 +72,13 @@ export default function Destination({ navigation,route }) {
               location : item
             }
           })}>
-            <Text>{index + 1}) {item.name} | {item.location.address}</Text>
+            <Text style={styles.title}>{index + 1}) {item.name} | {item.location.address}</Text>
           </TouchableOpacity>
         })}
       </View>
 
 
-    <Button title='Select a Car' onPress={() => navigation.navigate('CarSelection',{
+    <Button color='green' title='Select a Car' onPress={() => navigation.navigate('CarSelection',{
       pickupLocation, destinationLocation:location
     })} />
   </View>
@@ -99,5 +99,9 @@ const styles = StyleSheet.create({
     width: 200,
     top: 60,
     backgroundColor: 'white'
+  },
+  title:{
+    fontSize:15,
+    margin:5
   }
 });
