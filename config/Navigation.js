@@ -9,6 +9,7 @@ import CarSelection from '../screens/CarSelection';
 import SignIn from '../screens/SignIn';
 import PastRide from '../screens/PastRide';
 import PastRideDetails from '../screens/PastRideDetail';
+import Ride from '../screens/Ride'
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -40,6 +41,7 @@ function DashboardStack() {
             <Stack.Screen name="Pickup" component={Pickup} />
             <Stack.Screen name="Destination" component={Destination} />
             <Stack.Screen name="CarSelection" component={CarSelection} />
+            <Stack.Screen name="Ride" component={Ride} />
         </Stack.Navigator>
     );
 }

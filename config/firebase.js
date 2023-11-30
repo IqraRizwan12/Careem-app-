@@ -1,7 +1,7 @@
 
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { collection, addDoc, getFirestore} from "firebase/firestore"
+import { collection, addDoc, getFirestore,doc, onSnapshot} from "firebase/firestore"
 
 
 const firebaseConfig = {
@@ -20,12 +20,12 @@ const db = getFirestore(app)
 
 
 
-async function addARide({ pickup, destination, carType, fare }) {
+async function addARide({ pickup, destination, carType, fare, status }) {
     try {
-        await addDoc(collection(db, "rides"), {
-            pickup, destination, carType, fare
+       const doc = await addDoc(collection(db, "rides"), {
+            pickup, destination, carType, fare, status
         });
-        console.log('chala')
+        return doc.id
     } catch (e) {
         alert(e.message)
     }
@@ -34,4 +34,4 @@ async function addARide({ pickup, destination, carType, fare }) {
 
 
 
-export { addARide }
+export { addARide,doc, onSnapshot,db }
