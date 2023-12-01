@@ -66,6 +66,7 @@ export default function CarSelection({ route,navigation }) {
       const data = {id:doc.id,...doc.data()}
       if(data.status === 'accepted'){
         navigation.navigate('Ride',data)
+        unsub() 
     }})
 
     alert('Ride requested successfully')
